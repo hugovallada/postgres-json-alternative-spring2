@@ -27,9 +27,9 @@ class GetPokemon(private val repository: PokemonRepository, private val om: Obje
             val evolutions: List<Evolution> = om.convert(pokemon.evolutions)
             val trainerObj: Trainer = om.convert(pokemon.trainer)
 
-            println("Power Kotlin: $power")
-            println("Evolution Kotlin: $evolution")
-            println("Trainer Kotlin: $trainer")
+            println("Power Kotlin: $powers")
+            println("Evolution Kotlin: $evolutions")
+            println("Trainer Kotlin: $trainerObj")
         }
     }
 }
