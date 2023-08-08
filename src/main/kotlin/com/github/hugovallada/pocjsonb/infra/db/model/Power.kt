@@ -1,6 +1,9 @@
 package com.github.hugovallada.pocjsonb.infra.db.model
 
 
+typealias Powers = List<Power>
+typealias Evolutions = List<Evolution>
+
 @NoArg
 data class Power(
     val name: String,
@@ -12,7 +15,7 @@ data class Power(
 data class Evolution(
     val name: String,
     val level: Int,
-    val powers: List<Power>
+    val powers: Powers
 )
 
 @NoArg
