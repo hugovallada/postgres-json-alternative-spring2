@@ -1,6 +1,8 @@
 package com.github.hugovallada.pocjsonb.infra.db.model
 
-import com.github.hugovallada.pocjsonb.infra.config.JsonbToStringConverter
+import com.github.hugovallada.pocjsonb.infra.config.EvolutionsJsonConverter
+import com.github.hugovallada.pocjsonb.infra.config.PowerJsonConverter
+import com.github.hugovallada.pocjsonb.infra.config.TrainerJsonConverter
 import javax.persistence.*
 
 @Entity
@@ -12,10 +14,12 @@ data class Pokemon(
     val name: String,
     val type: String,
     @Column(columnDefinition = "jsonb")
-    val powers: String,
+    @Convert(converter = PowerJsonConverter::class)
+    val powers: List<Power>,
     @Column(columnDefinition = "jsonb")
-    @Convert(converter = JsonbToStringConverter::class)
-    val evolutions: String,
+    @Convert(converter = EvolutionsJsonConverter::class)
+    val evolutions: List<Evolution>,
     @Column(columnDefinition = "jsonb")
-    val trainer: String
+    @Convert(converter = TrainerJsonConverter::class)
+    val trainer: Trainer
 )
